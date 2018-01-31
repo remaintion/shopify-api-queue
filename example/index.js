@@ -1,5 +1,6 @@
 const axios = require('axios')
-const Queue = require('../distribution')
+const Queue = require('shopify-api-queue')
+// const Queue = require('../distribution')
 const limit = 1000
 console.log(`START: +++ >${Date.now()}`)
 
