@@ -24,9 +24,12 @@ class Manager {
       while (this.stack.length > 0) {
         for (var index in queues) {
           const q = queues[index]
+          if (this.stack.length <= 0) return
           const item = this.stack.shift()
-          q.push(item)
-          if (!q.running) q.run()
+          if (item) {
+            q.push(item)
+            if (!q.running) q.run()
+          }
         }
       }
       await delay(3000)
