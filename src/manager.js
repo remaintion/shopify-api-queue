@@ -47,4 +47,4 @@ function delay(ms) {
   });
 }
 
-exports.default = Manager
+export default Manager
