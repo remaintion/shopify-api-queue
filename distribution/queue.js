@@ -49,18 +49,25 @@ var queue = function () {
                 this.running = true;
                 this.success = false;
 
-              case 2:
+                if (!(this.stack.length === 0)) {
+                  _context.next = 4;
+                  break;
+                }
+
+                return _context.abrupt('return');
+
+              case 4:
                 if (!(this.stack.length > 0)) {
-                  _context.next = 25;
+                  _context.next = 27;
                   break;
                 }
 
                 item = this.stack[0];
-                _context.prev = 4;
-                _context.next = 7;
+                _context.prev = 6;
+                _context.next = 9;
                 return item.request();
 
-              case 7:
+              case 9:
                 response = _context.sent;
 
                 item.callback && item.callback(response.data);
@@ -70,42 +77,42 @@ var queue = function () {
                 this.stack.shift();
 
                 if (!(current > 30)) {
-                  _context.next = 15;
+                  _context.next = 17;
                   break;
                 }
 
-                _context.next = 15;
+                _context.next = 17;
                 return delay(6000);
 
-              case 15:
-                _context.next = 23;
+              case 17:
+                _context.next = 25;
                 break;
 
-              case 17:
-                _context.prev = 17;
-                _context.t0 = _context['catch'](4);
-                _context.next = 21;
+              case 19:
+                _context.prev = 19;
+                _context.t0 = _context['catch'](6);
+                _context.next = 23;
                 return delay(3000);
 
-              case 21:
+              case 23:
                 this.stack.shift();
                 item.fail && item.fail(_context.t0.message);
 
-              case 23:
-                _context.next = 2;
+              case 25:
+                _context.next = 4;
                 break;
 
-              case 25:
+              case 27:
                 this.running = false;
                 this.success = true;
                 console.log(this.title + ' =====> END: +++ >' + Date.now());
 
-              case 28:
+              case 30:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this, [[4, 17]]);
+        }, _callee, this, [[6, 19]]);
       }));
 
       function run() {

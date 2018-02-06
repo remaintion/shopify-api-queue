@@ -52,25 +52,32 @@ var Manager = function () {
               case 2:
                 this.running = true;
 
-              case 3:
-                if (!queues.some(function (q) {
-                  return !q.success;
-                })) {
-                  _context.next = 23;
+                if (!(this.stack.length === 0)) {
+                  _context.next = 5;
                   break;
                 }
 
-              case 4:
+                return _context.abrupt('return');
+
+              case 5:
+                if (!queues.some(function (q) {
+                  return !q.success;
+                })) {
+                  _context.next = 25;
+                  break;
+                }
+
+              case 6:
                 if (!(this.stack.length > 0)) {
-                  _context.next = 17;
+                  _context.next = 19;
                   break;
                 }
 
                 _context.t0 = regeneratorRuntime.keys(queues);
 
-              case 6:
+              case 8:
                 if ((_context.t1 = _context.t0()).done) {
-                  _context.next = 15;
+                  _context.next = 17;
                   break;
                 }
 
@@ -78,43 +85,43 @@ var Manager = function () {
                 q = queues[index];
 
                 if (!(this.stack.length <= 0)) {
-                  _context.next = 11;
+                  _context.next = 13;
                   break;
                 }
 
                 return _context.abrupt('return');
 
-              case 11:
+              case 13:
                 item = this.stack.shift();
 
                 if (item) {
                   q.push(item);
                   if (!q.running) q.run();
                 }
-                _context.next = 6;
-                break;
-
-              case 15:
-                _context.next = 4;
+                _context.next = 8;
                 break;
 
               case 17:
-                _context.next = 19;
-                return delay(3000);
+                _context.next = 6;
+                break;
 
               case 19:
+                _context.next = 21;
+                return delay(3000);
+
+              case 21:
                 sizes = queues.map(function (q) {
                   return q.size();
                 });
 
                 console.log(sizes);
-                _context.next = 3;
+                _context.next = 5;
                 break;
 
-              case 23:
+              case 25:
                 this.running = false;
 
-              case 24:
+              case 26:
               case 'end':
                 return _context.stop();
             }
