@@ -18,6 +18,7 @@ class queue {
   async run() {
     this.running = true
     this.success = false
+    if (this.stack.length === 0) return
     while (this.stack.length > 0) {
       const item = this.stack[0]
       try {
