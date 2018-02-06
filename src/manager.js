@@ -20,6 +20,7 @@ class Manager {
     if (this.running) return
     this.running = true
 
+    if (this.stack.length === 0) return
     while (queues.some(q => !q.success)) {
       while (this.stack.length > 0) {
         for (var index in queues) {
