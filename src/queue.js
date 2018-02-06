@@ -30,6 +30,8 @@ class queue {
           await delay(6000)
         }
       } catch (error) {
+        await delay(3000)
+        this.stack.shift()
         item.fail && item.fail(error.message)
       }
     }

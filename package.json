@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
-    "shopify-api-queue": "^0.0.1"
+    "babel-polyfill": "^6.26.0",
+    "shopify-api-queue": "0.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
