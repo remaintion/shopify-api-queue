@@ -51,7 +51,7 @@ var queue = function () {
 
               case 2:
                 if (!(this.stack.length > 0)) {
-                  _context.next = 22;
+                  _context.next = 25;
                   break;
                 }
 
@@ -78,25 +78,29 @@ var queue = function () {
                 return delay(6000);
 
               case 15:
-                _context.next = 20;
+                _context.next = 23;
                 break;
 
               case 17:
                 _context.prev = 17;
                 _context.t0 = _context['catch'](4);
+                _context.next = 21;
+                return delay(3000);
 
+              case 21:
+                this.stack.shift();
                 item.fail && item.fail(_context.t0.message);
 
-              case 20:
+              case 23:
                 _context.next = 2;
                 break;
 
-              case 22:
+              case 25:
                 this.running = false;
                 this.success = true;
                 console.log(this.title + ' =====> END: +++ >' + Date.now());
 
-              case 25:
+              case 28:
               case 'end':
                 return _context.stop();
             }
