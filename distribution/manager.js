@@ -37,6 +37,7 @@ var Manager = function () {
     key: 'run',
     value: function () {
       var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+        var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
         var index, q, item, sizes;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -120,8 +121,9 @@ var Manager = function () {
 
               case 25:
                 this.running = false;
+                callback();
 
-              case 26:
+              case 27:
               case 'end':
                 return _context.stop();
             }

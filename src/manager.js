@@ -16,7 +16,7 @@ class Manager {
     this.stack.push(item)
   }
 
-  async run() {
+  async run(callback = () => { }) {
     if (this.running) return
     this.running = true
 
@@ -38,8 +38,8 @@ class Manager {
       console.log(sizes)
     }
     this.running = false
+    callback()
   }
-
 }
 
 function delay(ms) {
